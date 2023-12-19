@@ -35,13 +35,18 @@ void print_usage(char* arg) {
     printf("usage: %s <file>", arg);
 }
 
-void swap(int* a, int* b) {
-    int temp = *a;
-    *a = *b;
-    *b = temp;
-}
-
 void insertion_sort(int* arr, int len) {
+    int i, key, j;
+    for (i = 1; i < len; i++) {
+        key = arr[i];
+        j = i - 1;
+
+        while (j >= 0 && arr[j] > key) {
+            arr[j + 1] = arr[j];
+            j = j - 1;
+        }
+        arr[j + 1] = key;
+    }
 }
 
 int main(int argc, char *argv[]) {
